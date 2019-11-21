@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from Insta.views import HelloWorld, PostsView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from Insta.views import HelloWorld, PostsView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, addLike
 
 urlpatterns = [
-	path('', HelloWorld.as_view(), name='HelloWorld'),
-	path('posts/', PostsView.as_view(), name='posts'),
+	path('HelloWorld', HelloWorld.as_view(), name='HelloWorld'),
+	path('', PostsView.as_view(), name='posts'),
 	path('posts/<int:pk>',PostDetailView.as_view(), name = 'posts_detail'),
 	path('posts/new/',PostCreateView.as_view(), name = 'make_post'),
 	path('posts/postupdate/<int:pk>',PostUpdateView.as_view(), name = 'post_update'),
 	path('posts/delete/<int:pk>',PostDeleteView.as_view(), name = 'post_delete'),
+    path('like', addLike, name='addLike'),
 ]

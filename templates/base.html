@@ -1,0 +1,30 @@
+<html>
+    {% load static %}<!--以下使用static下文件的前提条件-->
+    <head>
+        <meta charset="utf-8"> <!--编码方式-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--手机观看，比例尺1：1-->
+        <title>JZ Insta</title> <!--浏览器bar显示内容-->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> <!--页面使用的style，在css文件中被定义-->
+        <link href="{% static 'vendor/font-awesome-4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet"> <!--连接css路径-->
+    </head>
+    <body>
+        {% include 'header.html' %} <!--将header放在开头-->
+
+        <div class="content-wrapper">
+            <div class="container">
+                {% block content %}<!--content具体从每个页面来-->
+                {% endblock content%}
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ajax-csrf-auth.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+        {% block extrascript %}<!--允许网页自己定义script-->
+        {% endblock %}
+    </body>
+</html>
+    
