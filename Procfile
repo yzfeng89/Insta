@@ -1,0 +1,1 @@
+web: gunicorn InsataJZ.wsgi --log-gile -
